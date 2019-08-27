@@ -1,4 +1,3 @@
-# coidng=utf-8
 from appium.webdriver.common.mobileby import By
 import unittest,os,time
 from selenium.common.exceptions import *
@@ -20,7 +19,6 @@ class Lexin(unittest.TestCase):
 
     def tearDown(self):
         self.dr.quit()
-        pass
 
     '''手机号为空'''
     def test002_null_username(self):
@@ -53,8 +51,6 @@ class Lexin(unittest.TestCase):
         try:
             userlogin_loc = WebDriverWait(self.dr, 3, 0.5).until(EC.element_to_be_clickable(self.userlogin_loc))
             userlogin_loc.click()
-            # self.fz.is_toast_exist(u'密码错误')
-            # print('获取到toast')
         except TimeoutException as e:
             print('密码为空%s' % e)
 
@@ -73,7 +69,6 @@ class Lexin(unittest.TestCase):
             userlogin_loc.click()
             print('密码大于等于6位')
         except Exception as e:
-            pass
             print('密码不足6位%s' % e)
 
     '''17位密码登陆'''
@@ -137,7 +132,6 @@ class Lexin(unittest.TestCase):
             self.dr.find_element_by_id('dialog_close').click()
         except:
             print('首页弹窗广告未出现')
-            pass
         try:
             self.dr.find_element_by_id('gz.lifesense.weidong.qa:id/tv_mine').click()
             id = self.dr.find_element_by_id('fm_id_tv').text
